@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wrap It Up — Brews &amp; Food · Manitowoc, WI</title>
+<meta name="description" content="Wraps, paninis, smoothies, and Colectivo coffee in downtown Manitowoc. Not just good, but great. Catering available.">
+<meta name="theme-color" content="#1A1F1A">
+<meta property="og:title" content="Wrap It Up — Brews &amp; Food">
+<meta property="og:description" content="Not just good, but great. Wraps, paninis, and Colectivo coffee in Manitowoc, WI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Kalam:wght@300;400;700&family=Permanent+Marker&family=Special+Elite&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --kraft: #DBC9A4;
+  --kraft-dark: #C9B58E;
+  --kraft-light: #E5D5B3;
+  --board: #1F2A22;
+  --board-2: #2A3829;
+  --board-edge: #3A2615;
+  --chalk-white: #F4F1E8;
+  --chalk-pink: #F5A2C5;
+  --chalk-yellow: #F0DC78;
+  --chalk-blue: #7BAFC9;
+  --chalk-green: #9BD173;
+  --chalk-orange: #F5B167;
+  --brand-black: #1A1A1A;
+  --brand-yellow: #F5C842;
+  --brand-blue: #4A9FCC;
+  --ink: #2A1810;
+  --ink-dim: rgba(42, 24, 16, 0.7);
+  --ink-faint: rgba(42, 24, 16, 0.4);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Public Sans', sans-serif;
+  background: var(--kraft);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.27 0 0 0 0 0.15 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at top left, rgba(0,0,0,0.08), transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(0,0,0,0.08), transparent 60%);
+}
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(219, 201, 164, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--brand-black);
+  transition: padding 0.3s;
+}
+.nav.scrolled { padding: 10px 32px; }
+.nav-brand-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-logo {
+  width: 44px; height: 44px;
+  background: var(--brand-black);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-family: 'Permanent Marker', cursive;
+  color: var(--chalk-white);
+  font-size: 8px;
+  line-height: 1;
+  padding: 4px;
+  box-shadow: 0 2px 0 var(--ink);
+}
+.nav-logo::before {
+  content: '☀';
+  position: absolute;
+  top: 6px;
+  font-size: 12px;
+  color: var(--brand-yellow);
+}
+.nav-logo-text { margin-top: 13px; font-size: 7px; letter-spacing: 0.5px; text-align: center; }
+.nav-brand { font-family: 'Permanent Marker', cursive; font-size: 22px; color: var(--brand-black); letter-spacing: 1px; line-height: 1; }
+.nav-brand-sub { display: block; font-family: 'Caveat', cursive; font-size: 14px; color: var(--ink-dim); margin-top: 2px; }
+.nav-links { display: flex; gap: 26px; align-items: center; }
+.nav-link { font-family: 'Kalam', cursive; font-weight: 700; font-size: 15px; color: var(--brand-black); text-decoration: none; position: relative; }
+.nav-link::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 2px; background: var(--brand-yellow); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+.nav-link:hover::after { transform: scaleX(1); }
+.nav-cta { background: var(--brand-black); color: var(--chalk-white); padding: 10px 20px; text-decoration: none; font-family: 'Permanent Marker', cursive; font-size: 14px; letter-spacing: 1px; transition: all 0.3s; border: 2px solid var(--brand-black); }
+.nav-cta:hover { background: var(--brand-yellow); color: var(--brand-black); }
+.hero { position: relative; min-height: 100vh; padding: 130px 32px 80px; display: flex; align-items: center; z-index: 2; }
+.hero-container { max-width: 1300px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
+.hero-tag-top { display: inline-block; font-family: 'Caveat', cursive; font-size: 22px; color: var(--ink-dim); margin-bottom: 12px; transform: rotate(-1.5deg); }
+.hero-tag-top::before { content: '~ '; color: var(--ink-faint); }
+.hero-tag-top::after { content: ' ~'; color: var(--ink-faint); }
+.hero-title { font-family: 'Permanent Marker', cursive; font-size: clamp(56px, 8vw, 110px); line-height: 0.95; color: var(--brand-black); letter-spacing: 1px; margin-bottom: 12px; }
+.hero-title-line { display: block; }
+.hero-title-sub { font-family: 'Caveat', cursive; font-size: clamp(36px, 5vw, 64px); color: var(--brand-yellow); -webkit-text-stroke: 2px var(--brand-black); margin-bottom: 28px; font-weight: 700; line-height: 1; }
+.hero-sub { font-size: 18px; color: var(--ink); max-width: 520px; margin-bottom: 36px; line-height: 1.6; }
+.hero-sub-name { font-family: 'Caveat', cursive; font-size: 22px; color: var(--ink-dim); margin-top: 14px; display: block; }
+.hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary, .btn-secondary { font-family: 'Permanent Marker', cursive; padding: 16px 28px; text-decoration: none; font-size: 14px; letter-spacing: 1.5px; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s; border: 2px solid var(--brand-black); }
+.btn-primary { background: var(--brand-black); color: var(--chalk-white); }
+.btn-primary:hover { background: var(--brand-yellow); color: var(--brand-black); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--brand-black); }
+.btn-secondary { background: transparent; color: var(--brand-black); }
+.btn-secondary:hover { background: var(--brand-black); color: var(--chalk-white); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--brand-yellow); }
+.hero-medallion-wrap { position: relative; display: flex; align-items: center; justify-content: center; aspect-ratio: 1 / 1; max-width: 480px; margin: 0 auto; }
+.medallion { width: 100%; height: 100%; background: var(--brand-black); border-radius: 50%; border: 4px solid var(--brand-black); outline: 6px solid var(--kraft); outline-offset: -16px; position: relative; box-shadow: 0 12px 0 rgba(0,0,0,0.15), 0 20px 50px rgba(0,0,0,0.25); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 50px; text-align: center; }
+.medallion-sun { font-size: 80px; line-height: 1; color: var(--brand-yellow); filter: drop-shadow(0 0 12px rgba(245, 200, 66, 0.3)); margin-bottom: 4px; }
+.medallion-title { font-family: 'Permanent Marker', cursive; font-size: clamp(38px, 5.5vw, 60px); color: var(--chalk-white); letter-spacing: 2px; line-height: 1; margin: 10px 0 18px; text-shadow: 2px 2px 0 rgba(0,0,0,0.3); }
+.medallion-banner { background: var(--kraft-light); color: var(--brand-black); padding: 8px 20px; font-family: 'Caveat', cursive; font-size: clamp(20px, 3vw, 30px); font-weight: 700; letter-spacing: 1px; position: relative; border: 1px solid var(--ink-faint); box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+.medallion-banner::before, .medallion-banner::after { content: ''; position: absolute; top: 50%; border: 14px solid transparent; transform: translateY(-50%); }
+.medallion-banner::before { left: -28px; border-right-color: var(--kraft-dark); border-left-width: 0; }
+.medallion-banner::after { right: -28px; border-left-color: var(--kraft-dark); border-right-width: 0; }
+.medallion-wave { margin-top: 18px; color: var(--brand-blue); font-size: 42px; line-height: 1; letter-spacing: -8px; }
+.medallion-badge { position: absolute; bottom: 10px; right: -16px; background: var(--chalk-orange); border: 3px solid var(--brand-black); padding: 12px 14px; font-family: 'Permanent Marker', cursive; color: var(--chalk-white); text-align: center; line-height: 1.05; transform: rotate(8deg); box-shadow: 4px 4px 0 var(--brand-black); z-index: 3; }
+.medallion-badge .top { font-size: 11px; letter-spacing: 1.5px; }
+.medallion-badge .big { font-size: 28px; letter-spacing: 1px; display: block; margin: 2px 0; }
+.medallion-badge .mid { font-size: 10px; letter-spacing: 1.5px; }
+.medallion-badge .big2 { font-size: 22px; letter-spacing: 1px; display: block; }
+.medallion-rating { position: absolute; top: 10px; left: -12px; background: var(--chalk-white); border: 3px solid var(--brand-black); border-radius: 14px; padding: 10px 14px; text-align: center; transform: rotate(-6deg); box-shadow: 3px 3px 0 var(--brand-blue); z-index: 3; }
+.medallion-rating .stars { color: var(--brand-yellow); font-size: 14px; letter-spacing: 1px; }
+.medallion-rating .num { font-family: 'Permanent Marker', cursive; font-size: 20px; color: var(--brand-black); line-height: 1; }
+.medallion-rating .count { font-size: 10px; color: var(--ink-dim); margin-top: 2px; }
+.section { position: relative; z-index: 2; padding: 100px 32px; }
+.container { max-width: 1300px; margin: 0 auto; }
+.section-eyebrow { font-family: 'Caveat', cursive; font-size: 26px; color: var(--ink-dim); margin-bottom: 8px; display: inline-block; transform: rotate(-1deg); }
+.section-eyebrow::before { content: '~ '; }
+.section-eyebrow::after { content: ' ~'; }
+.section-title { font-family: 'Permanent Marker', cursive; font-size: clamp(44px, 6vw, 76px); line-height: 0.95; color: var(--brand-black); margin-bottom: 18px; letter-spacing: 1px; }
+.section-desc { font-size: 17px; color: var(--ink); max-width: 640px; margin-bottom: 60px; line-height: 1.7; }
+.menu-section { padding: 80px 32px 100px; }
+.menu-boards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 40px; }
+.chalkboard { background: radial-gradient(ellipse at top, rgba(255,255,255,0.04), transparent 50%), var(--board); border: 14px solid var(--board-edge); border-radius: 10px; padding: 38px 32px 32px; position: relative; box-shadow: inset 0 0 60px rgba(0,0,0,0.5), 0 16px 30px rgba(0,0,0,0.25), 0 4px 0 rgba(0,0,0,0.15); min-height: 460px; }
+.chalkboard::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E"); pointer-events: none; mix-blend-mode: screen; }
+.chalkboard-title { font-family: 'Permanent Marker', cursive; font-size: 42px; color: var(--chalk-white); text-align: center; margin-bottom: 4px; letter-spacing: 3px; text-shadow: 0 0 14px rgba(244, 241, 232, 0.25); }
+.chalkboard-title.pink { color: var(--chalk-pink); }
+.chalkboard-title.yellow { color: var(--chalk-yellow); }
+.chalkboard-title.green { color: var(--chalk-green); }
+.chalkboard-title.blue { color: var(--chalk-blue); }
+.chalkboard-flourish { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 22px; color: var(--chalk-white); font-size: 14px; opacity: 0.6; font-family: 'Caveat', cursive; }
+.chalkboard-flourish::before, .chalkboard-flourish::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--chalk-white); opacity: 0.4; }
+.chalk-items { list-style: none; }
+.chalk-item { padding: 12px 0; border-bottom: 1px dashed rgba(244, 241, 232, 0.18); font-family: 'Kalam', cursive; }
+.chalk-item:last-child { border-bottom: none; }
+.chalk-item-name { font-size: 19px; font-weight: 700; color: var(--chalk-white); display: flex; justify-content: space-between; align-items: baseline; letter-spacing: 0.5px; margin-bottom: 2px; }
+.chalk-item-name.pink { color: var(--chalk-pink); }
+.chalk-item-name.yellow { color: var(--chalk-yellow); }
+.chalk-item-name.green { color: var(--chalk-green); }
+.chalk-item-name.blue { color: var(--chalk-blue); }
+.chalk-item-name.orange { color: var(--chalk-orange); }
+.chalk-item-price { font-family: 'Caveat', cursive; font-size: 22px; color: var(--chalk-pink); font-weight: 700; }
+.chalk-item-desc { font-size: 13px; color: rgba(244, 241, 232, 0.75); font-family: 'Kalam', cursive; font-weight: 300; line-height: 1.4; }
+.chalkboard-note { margin-top: 20px; padding-top: 16px; border-top: 1px dashed rgba(244, 241, 232, 0.2); font-family: 'Caveat', cursive; font-size: 18px; color: var(--chalk-yellow); text-align: center; }
+.chalkboard-heart { color: var(--chalk-pink); }
+.welcome-section { background: var(--kraft-dark); border-top: 3px dashed var(--brand-black); border-bottom: 3px dashed var(--brand-black); padding: 90px 32px; position: relative; z-index: 2; }
+.welcome-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.welcome-stamp { background: var(--chalk-orange); color: var(--chalk-white); padding: 36px 32px; border: 4px solid var(--brand-black); text-align: center; font-family: 'Permanent Marker', cursive; transform: rotate(-3deg); box-shadow: 8px 8px 0 var(--brand-black); position: relative; max-width: 360px; margin: 0 auto; }
+.welcome-stamp::before, .welcome-stamp::after { content: ''; position: absolute; inset: 8px; border: 2px dashed rgba(244, 241, 232, 0.45); pointer-events: none; }
+.welcome-stamp-top { font-size: 18px; letter-spacing: 4px; margin-bottom: 6px; }
+.welcome-stamp-big { font-size: 64px; letter-spacing: 2px; line-height: 0.95; }
+.welcome-stamp-mid { font-size: 14px; letter-spacing: 4px; margin: 8px 0; }
+.welcome-stamp-big2 { font-size: 52px; letter-spacing: 2px; line-height: 0.95; }
+.welcome-text-block .section-eyebrow { color: var(--ink-dim); }
+.welcome-message { font-family: 'Kalam', cursive; font-size: 18px; color: var(--ink); line-height: 1.65; margin-bottom: 20px; }
+.welcome-message strong { color: var(--brand-black); font-weight: 700; }
+.welcome-signature { font-family: 'Caveat', cursive; font-size: 28px; color: var(--brand-black); margin-top: 20px; }
+.welcome-signature::before { content: '~ '; color: var(--ink-faint); }
+.catering-section { padding: 100px 32px; position: relative; z-index: 2; }
+.catering-card { max-width: 1100px; margin: 0 auto; background: var(--brand-black); color: var(--chalk-white); padding: 60px 50px; border-radius: 8px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 50px; align-items: center; position: relative; box-shadow: 0 12px 40px rgba(0,0,0,0.2); overflow: hidden; }
+.catering-card::before { content: ''; position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: radial-gradient(circle, var(--brand-yellow), transparent 70%); opacity: 0.2; border-radius: 50%; }
+.catering-content { position: relative; z-index: 2; }
+.catering-eyebrow { font-family: 'Caveat', cursive; font-size: 24px; color: var(--brand-yellow); margin-bottom: 10px; }
+.catering-title { font-family: 'Permanent Marker', cursive; font-size: clamp(36px, 5vw, 60px); color: var(--chalk-white); line-height: 1.05; margin-bottom: 20px; letter-spacing: 1.5px; }
+.catering-title .yellow { color: var(--brand-yellow); }
+.catering-desc { font-size: 17px; color: rgba(244, 241, 232, 0.85); margin-bottom: 28px; line-height: 1.65; max-width: 480px; }
+.catering-btn { background: var(--brand-yellow); color: var(--brand-black); padding: 16px 28px; text-decoration: none; font-family: 'Permanent Marker', cursive; font-size: 14px; letter-spacing: 1.5px; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s; border: 2px solid var(--brand-yellow); }
+.catering-btn:hover { background: var(--chalk-white); border-color: var(--chalk-white); transform: translateY(-2px); }
+.catering-visual { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; }
+.catering-emoji { font-size: 180px; line-height: 1; filter: drop-shadow(4px 6px 0 rgba(0,0,0,0.3)); }
+.visit-section { padding: 100px 32px; position: relative; z-index: 2; }
+.visit-grid { max-width: 1100px; margin: 40px auto 0; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; }
+.hours-board { background: var(--board); border: 14px solid var(--board-edge); border-radius: 10px; padding: 36px 32px; box-shadow: inset 0 0 60px rgba(0,0,0,0.5), 0 12px 28px rgba(0,0,0,0.2); position: relative; }
+.hours-board::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E"); pointer-events: none; mix-blend-mode: screen; }
+.hours-title { font-family: 'Permanent Marker', cursive; font-size: 40px; color: var(--chalk-yellow); text-align: center; letter-spacing: 3px; margin-bottom: 4px; }
+.hours-sub { text-align: center; font-family: 'Caveat', cursive; color: var(--chalk-white); opacity: 0.6; font-size: 18px; margin-bottom: 24px; }
+.hours-list { list-style: none; }
+.hours-row { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; border-bottom: 1px dashed rgba(244, 241, 232, 0.18); font-family: 'Kalam', cursive; }
+.hours-row:last-child { border-bottom: none; }
+.hours-day { font-weight: 700; font-size: 17px; color: var(--chalk-white); letter-spacing: 1px; }
+.hours-time { font-family: 'Caveat', cursive; font-size: 22px; color: var(--chalk-pink); font-weight: 700; }
+.visit-cards { display: flex; flex-direction: column; gap: 20px; }
+.visit-card { background: var(--kraft-light); border: 3px solid var(--brand-black); padding: 24px 26px; position: relative; box-shadow: 6px 6px 0 var(--brand-black); transition: transform 0.2s; }
+.visit-card:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--brand-black); }
+.visit-card:nth-child(1) { box-shadow: 6px 6px 0 var(--brand-blue); }
+.visit-card:nth-child(2) { box-shadow: 6px 6px 0 var(--chalk-orange); }
+.visit-card:nth-child(3) { box-shadow: 6px 6px 0 var(--brand-yellow); }
+.visit-card-label { font-family: 'Caveat', cursive; font-size: 20px; color: var(--ink-dim); margin-bottom: 4px; }
+.visit-card-value { font-family: 'Permanent Marker', cursive; font-size: 22px; color: var(--brand-black); line-height: 1.2; letter-spacing: 1px; }
+.visit-card-value a { color: var(--brand-black); text-decoration: none; }
+.visit-card-value a:hover { color: var(--brand-blue); }
+.footer { background: var(--brand-black); color: var(--chalk-white); padding: 60px 32px 30px; text-align: center; position: relative; z-index: 2; }
+.footer-brand { font-family: 'Permanent Marker', cursive; font-size: 44px; color: var(--chalk-white); letter-spacing: 3px; margin-bottom: 4px; }
+.footer-tag { font-family: 'Caveat', cursive; font-size: 22px; color: var(--brand-yellow); margin-bottom: 4px; }
+.footer-sub { font-family: 'Caveat', cursive; font-size: 18px; color: rgba(244, 241, 232, 0.55); margin-bottom: 32px; }
+.footer-info { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 28px; font-family: 'Kalam', cursive; }
+.footer-info a { color: var(--chalk-white); text-decoration: none; font-size: 15px; transition: color 0.2s; }
+.footer-info a:hover { color: var(--brand-yellow); }
+.footer-copy { font-size: 12px; color: rgba(244, 241, 232, 0.4); padding-top: 24px; border-top: 1px dashed rgba(244, 241, 232, 0.2); font-family: 'Special Elite', monospace; letter-spacing: 1px; }
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.9s cubic-bezier(0.2, 0.9, 0.3, 1.1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+@media (max-width: 900px) {
+  .hero-container { grid-template-columns: 1fr; gap: 50px; }
+  .hero-medallion-wrap { max-width: 340px; }
+  .menu-boards { grid-template-columns: 1fr; }
+  .welcome-grid { grid-template-columns: 1fr; gap: 40px; }
+  .catering-card { grid-template-columns: 1fr; gap: 30px; padding: 40px 28px; text-align: center; }
+  .catering-desc { margin: 0 auto 28px; }
+  .catering-emoji { font-size: 120px; }
+  .visit-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .nav { padding: 12px 18px; }
+  .nav-links { display: none; }
+  .nav-brand-sub { display: none; }
+  .nav-brand { font-size: 18px; }
+  .nav-logo { width: 36px; height: 36px; }
+  .nav-cta { padding: 8px 14px; font-size: 12px; }
+  .hero { padding: 110px 18px 60px; }
+  .section, .menu-section, .catering-section, .visit-section, .welcome-section { padding: 60px 18px; }
+  .chalkboard { padding: 28px 22px; min-height: auto; border-width: 10px; }
+  .chalkboard-title { font-size: 32px; letter-spacing: 2px; }
+  .hours-board { padding: 26px 22px; border-width: 10px; }
+  .hero-cta-row { flex-direction: column; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  .footer-info { flex-direction: column; gap: 10px; }
+  .welcome-stamp-big { font-size: 48px; }
+  .welcome-stamp-big2 { font-size: 38px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="#hero" class="nav-brand-wrap">
+    <div class="nav-logo"><div class="nav-logo-text">WRAP<br>IT UP</div></div>
+    <div>
+      <div class="nav-brand">Wrap It Up</div>
+      <span class="nav-brand-sub">Brews &amp; Food</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#menu" class="nav-link">Menu</a>
+    <a href="#welcome" class="nav-link">Welcome</a>
+    <a href="#catering" class="nav-link">Catering</a>
+    <a href="#visit" class="nav-link">Visit</a>
+  </div>
+  <a href="tel:9202426445" class="nav-cta">Call</a>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-container">
+    <div class="hero-text">
+      <div class="hero-tag-top">downtown Manitowoc</div>
+      <h1 class="hero-title"><span class="hero-title-line">Wrap</span><span class="hero-title-line">It Up.</span></h1>
+      <div class="hero-title-sub">brews &amp; food</div>
+      <p class="hero-sub">A cozy spot on 8th Street serving up specialty wraps, hot paninis, Colectivo coffee, and a chalkboard full of daily favorites. Fresh-made every order. Catering, too.</p>
+      <span class="hero-sub-name">from Randy &amp; Barb Lueptow</span>
+      <div class="hero-cta-row">
+        <a href="#menu" class="btn-primary">See the menu →</a>
+        <a href="#catering" class="btn-secondary">Catering</a>
+      </div>
+    </div>
+    <div class="hero-medallion-wrap">
+      <div class="medallion-rating">
+        <div class="stars">★★★★★</div>
+        <div class="num">4.5</div>
+        <div class="count">401 reviews</div>
+      </div>
+      <div class="medallion">
+        <div class="medallion-sun">☀</div>
+        <div class="medallion-title">Wrap It Up</div>
+        <div class="medallion-banner">Brews &amp; Food</div>
+        <div class="medallion-wave">∼∼∼</div>
+      </div>
+      <div class="medallion-badge">
+        <div class="top">NOT JUST</div>
+        <span class="big">GOOD</span>
+        <div class="mid">BUT</div>
+        <span class="big2">GREAT</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section menu-section" id="menu">
+  <div class="container">
+    <div class="reveal" style="text-align: center; max-width: 680px; margin: 0 auto 60px;">
+      <span class="section-eyebrow">on the board today</span>
+      <h2 class="section-title">The Menu</h2>
+      <p class="section-desc" style="margin: 0 auto;">Hand-written daily, made fresh every order. Gluten-free options on most wraps and paninis. Prices may vary — check in-store for today's specials.</p>
+    </div>
+
+    <div class="menu-boards">
+      <div class="chalkboard reveal">
+        <h3 class="chalkboard-title pink">← Wraps</h3>
+        <div class="chalkboard-flourish">specialty &amp; fresh</div>
+        <ul class="chalk-items">
+          <li class="chalk-item"><div class="chalk-item-name green">Spicy Veggie <span class="chalk-item-price">$7.95</span></div><div class="chalk-item-desc">pepperjack, spinach, tomato, black beans, mushrooms, avocado, jalapeño</div></li>
+          <li class="chalk-item"><div class="chalk-item-name yellow">B.L.A.T. <span class="chalk-item-price">$7.95</span></div><div class="chalk-item-desc">bacon, lettuce, tomato, avocado, mayo</div></li>
+          <li class="chalk-item"><div class="chalk-item-name pink">Chicken Caesar <span class="chalk-item-price">$7.75</span></div><div class="chalk-item-desc">chicken, lettuce, parmesan, caesar dressing</div></li>
+          <li class="chalk-item"><div class="chalk-item-name blue">Chicken Bacon Ranch <span class="chalk-item-price">$7.95</span></div><div class="chalk-item-desc">chicken, lettuce, bacon, ranch dressing</div></li>
+          <li class="chalk-item"><div class="chalk-item-name orange">Huli Huli <span class="chalk-item-price">$7.95</span></div><div class="chalk-item-desc">hawaiian chicken, jasmine rice, sweet sauce — a local favorite</div></li>
+          <li class="chalk-item"><div class="chalk-item-name green">Garden Wrap <span class="chalk-item-price">$7.50</span></div><div class="chalk-item-desc">lettuce, tomato, mushrooms, spinach</div></li>
+          <li class="chalk-item"><div class="chalk-item-name pink">Jazzed Up Tuna <span class="chalk-item-price">$7.75</span></div><div class="chalk-item-desc">house tuna salad with the works</div></li>
+        </ul>
+        <div class="chalkboard-note">gluten-free available <span class="chalkboard-heart">♥</span></div>
+      </div>
+
+      <div class="chalkboard reveal reveal-delay-1">
+        <h3 class="chalkboard-title green">Paninis</h3>
+        <div class="chalkboard-flourish">pressed &amp; hot</div>
+        <ul class="chalk-items">
+          <li class="chalk-item"><div class="chalk-item-name pink">Texas Ranch Chicken <span class="chalk-item-price">$7.00</span></div><div class="chalk-item-desc">grilled chicken, lettuce, pepperjack cheese</div></li>
+          <li class="chalk-item"><div class="chalk-item-name yellow">Turkey Panini <span class="chalk-item-price">$7.00</span></div><div class="chalk-item-desc">turkey, bacon, lettuce, mayo, cheddar</div></li>
+          <li class="chalk-item"><div class="chalk-item-name green">Ham &amp; Swiss <span class="chalk-item-price">$7.00</span></div><div class="chalk-item-desc">ham, swiss cheese, spicy brown mustard</div></li>
+          <li class="chalk-item"><div class="chalk-item-name orange">B.L.T. <span class="chalk-item-price">$7.00</span></div><div class="chalk-item-desc">applewood bacon, lettuce, tomato, mayo</div></li>
+          <li class="chalk-item"><div class="chalk-item-name blue">Tuna Melt <span class="chalk-item-price">$7.00</span></div><div class="chalk-item-desc">jazzed up tuna, cheddar cheese</div></li>
+          <li class="chalk-item"><div class="chalk-item-name pink">Spicy Veggie <span class="chalk-item-price">$6.50</span></div><div class="chalk-item-desc">pepperjack, spinach, tomato, black beans, mushrooms, avocado, jalapeños</div></li>
+          <li class="chalk-item"><div class="chalk-item-name green">Grilled Cheese <span class="chalk-item-price">$5.50</span></div><div class="chalk-item-desc">sharp white cheddar</div></li>
+        </ul>
+        <div class="chalkboard-note">on gluten-free <span class="chalkboard-heart">♥</span></div>
+      </div>
+
+      <div class="chalkboard reveal">
+        <h3 class="chalkboard-title yellow">Bowls</h3>
+        <div class="chalkboard-flourish">rice, veggies, protein</div>
+        <ul class="chalk-items">
+          <li class="chalk-item"><div class="chalk-item-name pink">Teriyaki Bowl <span class="chalk-item-price">$8.50</span></div><div class="chalk-item-desc">jasmine rice, sautéed broccoli, teriyaki glaze, your protein</div></li>
+          <li class="chalk-item"><div class="chalk-item-name green">Loaded Bowl <span class="chalk-item-price">$8.50</span></div><div class="chalk-item-desc">black beans, brown rice, fresh veggies</div></li>
+          <li class="chalk-item"><div class="chalk-item-name orange">Hot Jerk Chicken <span class="chalk-item-price">$8.95</span></div><div class="chalk-item-desc">jerk-seasoned chicken with red beans &amp; rice</div></li>
+          <li class="chalk-item"><div class="chalk-item-name blue">Steak Skillet <span class="chalk-item-price">$9.50</span></div><div class="chalk-item-desc">a customer favorite — seasoned steak over rice</div></li>
+        </ul>
+        <div class="chalkboard-note">ask about today's special <span class="chalkboard-heart">♥</span></div>
+      </div>
+
+      <div class="chalkboard reveal reveal-delay-1">
+        <h3 class="chalkboard-title blue">Brews</h3>
+        <div class="chalkboard-flourish">colectivo coffee &amp; more</div>
+        <ul class="chalk-items">
+          <li class="chalk-item"><div class="chalk-item-name yellow">House Coffee <span class="chalk-item-price">$2.95</span></div><div class="chalk-item-desc">one free refill per house coffee — inside only please</div></li>
+          <li class="chalk-item"><div class="chalk-item-name pink">Latte / Cappuccino <span class="chalk-item-price">$4.50</span></div><div class="chalk-item-desc">Colectivo espresso, your milk of choice</div></li>
+          <li class="chalk-item"><div class="chalk-item-name green">Bomb Bombs <span class="chalk-item-price">$5–6</span></div><div class="chalk-item-desc">our signature blended hot drinks — ask for today's flavor</div></li>
+          <li class="chalk-item"><div class="chalk-item-name orange">Smoothies <span class="chalk-item-price">$5.50</span></div><div class="chalk-item-desc">fresh fruit, blended fast</div></li>
+          <li class="chalk-item"><div class="chalk-item-name blue">Cold Brew <span class="chalk-item-price">$4.25</span></div><div class="chalk-item-desc">slow-steeped, smooth finish</div></li>
+          <li class="chalk-item"><div class="chalk-item-name pink">Troubadour Bakery <span class="chalk-item-price">market</span></div><div class="chalk-item-desc">muffins, scones, cookies — vegan options daily</div></li>
+        </ul>
+        <div class="chalkboard-note">rise &amp; grind <span class="chalkboard-heart">♥</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="welcome-section" id="welcome">
+  <div class="welcome-grid">
+    <div class="welcome-stamp reveal">
+      <div class="welcome-stamp-top">NOT JUST</div>
+      <span class="welcome-stamp-big">GOOD</span>
+      <div class="welcome-stamp-mid">BUT</div>
+      <span class="welcome-stamp-big2">GREAT</span>
+    </div>
+    <div class="welcome-text-block reveal reveal-delay-1">
+      <span class="section-eyebrow">a note from us</span>
+      <h2 class="section-title" style="font-size: clamp(36px, 4.5vw, 52px); margin-bottom: 28px;">Welcome to Wrap It Up</h2>
+      <p class="welcome-message">Welcome to a new way to do <strong>great food, great brews, &amp; great times.</strong> We take pride in serving each guest the very highest quality food and beverages.</p>
+      <p class="welcome-message">Our mission is to not just meet your expectations but exceed them, over and over.</p>
+      <p class="welcome-message">Whether it's catering a group or just a great cup of Colectivo coffee, Wrap It Up has you covered. We sincerely hope you give us the opportunity.</p>
+      <div class="welcome-signature">Thank you, Randy &amp; Barb Lueptow</div>
+    </div>
+  </div>
+</section>
+
+<section class="catering-section" id="catering">
+  <div class="catering-card reveal">
+    <div class="catering-content">
+      <div class="catering-eyebrow">~ for the whole crew ~</div>
+      <h2 class="catering-title">Catering, <span class="yellow">done right.</span></h2>
+      <p class="catering-desc">Office lunches, family gatherings, school events, business meetings — we'll put together a spread of wraps, paninis, sides, and coffee that fits your crowd. Give us a heads up and we'll handle the rest.</p>
+      <a href="mailto:wrapitupman@gmail.com?subject=Catering Inquiry" class="catering-btn">Request a quote →</a>
+    </div>
+    <div class="catering-visual"><div class="catering-emoji">🌯</div></div>
+  </div>
+</section>
+
+<section class="section visit-section" id="visit">
+  <div class="container">
+    <div class="reveal" style="text-align: center; max-width: 640px; margin: 0 auto;">
+      <span class="section-eyebrow">come see us</span>
+      <h2 class="section-title">Drop in.</h2>
+      <p class="section-desc" style="margin: 0 auto;">We're right on 8th Street in downtown Manitowoc. Stop in for breakfast, lunch, or just a really good cup of coffee.</p>
+    </div>
+
+    <div class="visit-grid">
+      <div class="hours-board reveal">
+        <h3 class="hours-title">Hours</h3>
+        <div class="hours-sub">open most every day</div>
+        <ul class="hours-list">
+          <li class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">9 am — 5 pm</span></li>
+          <li class="hours-row"><span class="hours-day">Monday</span><span class="hours-time">9 am — 5 pm</span></li>
+          <li class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">9 am — 5 pm</span></li>
+          <li class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">9 am — 5 pm</span></li>
+          <li class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">9 am — 7 pm</span></li>
+          <li class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">9 am — 7 pm</span></li>
+          <li class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">9 am — 7 pm</span></li>
+        </ul>
+      </div>
+      <div class="visit-cards">
+        <div class="visit-card reveal reveal-delay-1">
+          <div class="visit-card-label">find us at</div>
+          <div class="visit-card-value"><a href="https://maps.google.com/?q=Wrap+It+Up+830+S+8th+St+Manitowoc+WI" target="_blank" rel="noopener">830 S. 8th St.<br>Manitowoc, WI 54220</a></div>
+        </div>
+        <div class="visit-card reveal reveal-delay-2">
+          <div class="visit-card-label">call us at</div>
+          <div class="visit-card-value"><a href="tel:9202426445">(920) 242-6445</a></div>
+        </div>
+        <div class="visit-card reveal reveal-delay-3">
+          <div class="visit-card-label">email us</div>
+          <div class="visit-card-value" style="font-size: 18px;"><a href="mailto:wrapitupman@gmail.com">wrapitupman@gmail.com</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand">Wrap It Up</div>
+  <div class="footer-tag">Brews &amp; Food</div>
+  <div class="footer-sub">~ not just good but great ~</div>
+  <div class="footer-info">
+    <a href="#menu">Menu</a>
+    <a href="#catering">Catering</a>
+    <a href="#visit">Visit</a>
+    <a href="tel:9202426445">(920) 242-6445</a>
+    <a href="mailto:wrapitupman@gmail.com">Email</a>
+  </div>
+  <div class="footer-copy">© 2026 Wrap It Up · Randy &amp; Barb Lueptow · 830 S. 8th St., Manitowoc, WI</div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('nav');
+  if (window.scrollY > 20) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
